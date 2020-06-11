@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Product Entry</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Text</th>
+    <th>Created_at</th>
+      <th>Updated_at</th>
+  </tr>
+  {% for p in product %}
+  <tr>
+    <td>{{p.name}}</td>
+    <td>{{p.price}}</td>
+      <td>{{p.weight}}</td>
+    <td>{{p.created_at}}</td>
+    <td>{{p.updated_at}}</td>
+    <td><a href="{% url 'update_product1' id=p.name %}">Update</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
